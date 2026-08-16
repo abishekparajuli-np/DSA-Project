@@ -131,6 +131,8 @@ export const DataProvider = ({ children }) => {
     try {
       setLoading(true);
       setError(null);
+      setAlgorithmResult(null); // Reset algorithm result so graph view shows
+      setIsAnimating(false); // Stop any animation
       const response = await dataAPI.buildGraph(field, threshold);
       setVisualizationData(response.data);
       return response.data;
@@ -162,6 +164,8 @@ export const DataProvider = ({ children }) => {
     try {
       setLoading(true);
       setError(null);
+      setAlgorithmResult(null); // Reset so stats panel is visible without sort/search overlay
+      setIsAnimating(false);
       const response = await dataAPI.computeStatistics(field);
       setStatistics(response.data);
       return response.data;

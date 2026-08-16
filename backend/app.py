@@ -9,6 +9,7 @@ import pandas as pd
 import io
 import sys
 import os
+import math
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(__file__))
@@ -56,12 +57,51 @@ def upload_csv():
         if file.filename == '':
             return jsonify({'error': 'No file selected'}), 400
         
-        # Read CSV
-        content = file.read().decode('utf-8')
-        df = pd.read_csv(io.StringIO(content))
+        # Read file bytes
+        raw_bytes = file.read()
+        
+        # Try multiple encodings
+        content = None
+        for encoding in ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252', 'iso-8859-1']:
+            try:
+                content = raw_bytes.decode(encoding)
+                break
+            except (UnicodeDecodeError, ValueError):
+                continue
+        
+        if content is None:
+            return jsonify({'error': 'Could not decode file. Please save as UTF-8.'}), 400
+        
+        # Try common delimiters
+        df = None
+        for sep in [',', ';', '\t', '|']:
+            try:
+                test_df = pd.read_csv(io.StringIO(content), sep=sep)
+                if len(test_df.columns) > 1:
+                    df = test_df
+                    break
+            except Exception:
+                continue
+        
+        # Fallback: default comma
+        if df is None:
+            df = pd.read_csv(io.StringIO(content))
+        
+        if df.empty:
+            return jsonify({'error': 'CSV file is empty or has no valid data'}), 400
+        
+        # Replace NaN/inf with None for JSON serialization
+        df = df.where(pd.notnull(df), None)
+        df = df.replace([float('inf'), float('-inf')], None)
         
         # Convert to list of dicts
         current_data = df.to_dict('records')
+        
+        # Clean up any remaining NaN values in the records
+        for record in current_data:
+            for key, value in record.items():
+                if isinstance(value, float) and (pd.isna(value) or not math.isfinite(value)):
+                    record[key] = None
         
         # Get column info
         columns = list(df.columns)
@@ -75,6 +115,10 @@ def upload_csv():
             'count': len(current_data)
         })
     
+    except pd.errors.EmptyDataError:
+        return jsonify({'error': 'CSV file is empty'}), 400
+    except pd.errors.ParserError as e:
+        return jsonify({'error': f'Could not parse CSV: {str(e)}'}), 400
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

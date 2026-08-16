@@ -2,24 +2,19 @@ import { Activity } from 'lucide-react';
 
 const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Activity className="w-8 h-8" />
-            <div>
-              <h1 className="text-2xl font-bold">Data Insights Explorer</h1>
-              <p className="text-sm text-indigo-100">
-                Live Algorithm Visualization & Data Analysis Engine
-              </p>
-            </div>
+    <header className="app-header">
+      <div className="app-header-inner">
+        <div className="app-header-left">
+          <div className="app-header-logo">
+            <Activity size={20} />
           </div>
-          <div className="flex items-center space-x-4">
-            <div className="text-right">
-              <p className="text-xs text-indigo-200">Powered by</p>
-              <p className="text-sm font-semibold">React + Flask</p>
-            </div>
+          <div>
+            <h1 className="app-header-title">Data Insights Explorer</h1>
+            <p className="app-header-subtitle">Algorithm Visualization & Analysis</p>
           </div>
+        </div>
+        <div className="app-header-right">
+          <span className="app-header-tag">React + Flask</span>
         </div>
       </div>
     </header>

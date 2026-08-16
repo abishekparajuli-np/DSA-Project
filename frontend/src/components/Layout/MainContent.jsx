@@ -3,67 +3,58 @@ import MetricsDashboard from '../Statistics/MetricsDashboard';
 import VisualizationCanvas from '../Visualization/VisualizationCanvas';
 import DataTable from '../Visualization/DataTable';
 import StatisticsPanel from '../Statistics/StatisticsPanel';
-import { AlertCircle, Loader2 } from 'lucide-react';
+import { AlertCircle, Loader2, BarChart3 } from 'lucide-react';
 
 const MainContent = () => {
   const { data, columns, loading, error, algorithmResult, statistics } = useData();
 
   return (
-    <main className="flex-1 overflow-y-auto p-6 space-y-6">
+    <main className="main-content">
       {/* Error Alert */}
       {error && (
-        <div className="bg-red-500/10 border border-red-500 rounded-lg p-4 flex items-center space-x-3 animate-slide-up">
-          <AlertCircle className="w-5 h-5 text-red-500" />
-          <p className="text-red-400">{error}</p>
+        <div className="alert alert-error">
+          <AlertCircle size={16} />
+          <p>{error}</p>
         </div>
       )}
 
-      {/* Loading Indicator */}
+      {/* Loading */}
       {loading && (
-        <div className="bg-blue-500/10 border border-blue-500 rounded-lg p-4 flex items-center space-x-3">
-          <Loader2 className="w-5 h-5 text-blue-500 animate-spin" />
-          <p className="text-blue-400">Processing...</p>
+        <div className="alert alert-info">
+          <Loader2 size={16} className="animate-spin" />
+          <p>Processing...</p>
         </div>
       )}
 
-      {/* Metrics Dashboard */}
+      {/* Metrics */}
       {algorithmResult && <MetricsDashboard result={algorithmResult} />}
 
-      {/* Visualization Canvas */}
+      {/* Visualization */}
       <VisualizationCanvas />
 
-      {/* Sorted Results Display */}
+      {/* Sorted Results */}
       {algorithmResult?.sorted && algorithmResult?.algorithm?.includes('Sort') && (
-        <div className="card animate-slide-up">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold">✅ Sorted Results</h3>
-            <span className="px-3 py-1 bg-green-500 text-white rounded-full text-sm">
-              {algorithmResult.sorted.length} records sorted
-            </span>
+        <div className="panel">
+          <div className="panel-header">
+            <h3 className="panel-title">Sorted Results</h3>
+            <span className="panel-badge">{algorithmResult.sorted.length} records</span>
           </div>
-          <div className="overflow-x-auto max-h-64 overflow-y-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-slate-700 sticky top-0">
+          <div className="table-wrapper" style={{ maxHeight: '280px' }}>
+            <table className="data-table">
+              <thead>
                 <tr>
-                  <th className="px-4 py-2 text-left text-yellow-400">#</th>
+                  <th>#</th>
                   {columns.map((col) => (
-                    <th key={col} className="px-4 py-2 text-left text-yellow-400">
-                      {col}
-                    </th>
+                    <th key={col}>{col}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {algorithmResult.sorted.slice(0, 20).map((row, idx) => (
-                  <tr
-                    key={idx}
-                    className="border-t border-slate-700 hover:bg-slate-700/50"
-                  >
-                    <td className="px-4 py-2 text-slate-400">{idx + 1}</td>
+                  <tr key={idx}>
+                    <td className="text-muted">{idx + 1}</td>
                     {columns.map((col) => (
-                      <td key={col} className="px-4 py-2">
-                        {String(row[col] ?? '')}
-                      </td>
+                      <td key={col}>{String(row[col] ?? '')}</td>
                     ))}
                   </tr>
                 ))}
@@ -71,29 +62,27 @@ const MainContent = () => {
             </table>
           </div>
           {algorithmResult.sorted.length > 20 && (
-            <div className="mt-2 text-center text-sm text-slate-400">
-              Showing first 20 of {algorithmResult.sorted.length} sorted records
+            <div className="table-footer">
+              Showing 20 of {algorithmResult.sorted.length} records
             </div>
           )}
         </div>
       )}
 
       {/* Data Table */}
-      {data.length > 0 && <DataTable />}
+      {data?.length > 0 && <DataTable />}
 
-      {/* Statistics Panel */}
+      {/* Statistics */}
       {statistics && <StatisticsPanel statistics={statistics} />}
 
       {/* Empty State */}
-      {data.length === 0 && !loading && (
-        <div className="card text-center py-12">
-          <div className="text-slate-400 space-y-4">
-            <div className="text-6xl">📊</div>
-            <h3 className="text-xl font-semibold">No Data Loaded</h3>
-            <p className="text-sm">
-              Upload a CSV file or load a sample dataset to begin visualization
-            </p>
+      {(!data || data.length === 0) && !loading && (
+        <div className="empty-state">
+          <div className="empty-state-icon">
+            <BarChart3 size={40} />
           </div>
+          <h3>No Data Loaded</h3>
+          <p>Upload a CSV file or load a sample dataset from the sidebar to begin.</p>
         </div>
       )}
     </main>

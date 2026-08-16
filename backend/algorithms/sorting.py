@@ -54,7 +54,8 @@ class SortingAlgorithms:
             'comparisons': comparisons,
             'swaps': swaps,
             'time': (end_time - start_time) * 1000,  # Convert to ms
-            'complexity': 'O(n²)'
+            'complexity': 'O(n²)',
+            'field': key
         }
     
     @staticmethod
@@ -136,7 +137,8 @@ class SortingAlgorithms:
             'comparisons': comparisons[0],
             'swaps': swaps[0],
             'time': (end_time - start_time) * 1000,
-            'complexity': 'O(n log n)'
+            'complexity': 'O(n log n)',
+            'field': key
         }
     
     @staticmethod
@@ -211,7 +213,8 @@ class SortingAlgorithms:
             'comparisons': comparisons[0],
             'swaps': swaps[0],
             'time': (end_time - start_time) * 1000,
-            'complexity': 'O(n log n)'
+            'complexity': 'O(n log n)',
+            'field': key
         }
     
     @staticmethod
@@ -291,5 +294,6 @@ class SortingAlgorithms:
             'comparisons': comparisons[0],
             'swaps': swaps[0],
             'time': (end_time - start_time) * 1000,
-            'complexity': 'O(n log n)'
+            'complexity': 'O(n log n)',
+            'field': key
         }

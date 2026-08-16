@@ -1,37 +1,45 @@
+import { Clock, Hash, ArrowLeftRight, Gauge } from 'lucide-react';
+
 const MetricsDashboard = ({ result }) => {
   if (!result) return null;
 
   const metrics = [
     {
-      icon: '⏱️',
-      label: 'Time Taken',
-      value: result.time ? `${result.time.toFixed(3)} ms` : '--',
+      icon: <Clock size={18} />,
+      label: 'Time',
+      value: result.time ? `${result.time.toFixed(3)} ms` : '—',
+      color: 'var(--color-blue)',
     },
     {
-      icon: '🔢',
+      icon: <Hash size={18} />,
       label: 'Comparisons',
-      value: result.comparisons ?? '--',
+      value: result.comparisons ?? '—',
+      color: 'var(--color-violet)',
     },
     {
-      icon: '🔄',
+      icon: <ArrowLeftRight size={18} />,
       label: 'Swaps',
-      value: result.swaps ?? '--',
+      value: result.swaps ?? '—',
+      color: 'var(--color-amber)',
     },
     {
-      icon: '📏',
+      icon: <Gauge size={18} />,
       label: 'Complexity',
-      value: result.complexity || '--',
+      value: result.complexity || '—',
+      color: 'var(--color-emerald)',
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-slide-up">
+    <div className="metrics-grid">
       {metrics.map((metric, idx) => (
-        <div key={idx} className="card text-center">
-          <div className="text-3xl mb-2">{metric.icon}</div>
-          <div className="text-sm text-slate-400 mb-1">{metric.label}</div>
-          <div className="text-2xl font-bold text-indigo-400">
-            {metric.value}
+        <div key={idx} className="metric-card">
+          <div className="metric-icon" style={{ color: metric.color }}>
+            {metric.icon}
+          </div>
+          <div className="metric-body">
+            <div className="metric-label">{metric.label}</div>
+            <div className="metric-value">{metric.value}</div>
           </div>
         </div>
       ))}

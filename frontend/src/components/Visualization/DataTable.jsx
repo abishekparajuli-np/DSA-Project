@@ -6,38 +6,26 @@ const DataTable = () => {
   if (!data || data.length === 0) return null;
 
   return (
-    <div className="card">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-semibold">📋 Data Records</h3>
-        <span className="px-3 py-1 bg-indigo-600 rounded-full text-sm">
-          {data.length} records
-        </span>
+    <div className="panel">
+      <div className="panel-header">
+        <h3 className="panel-title">Data Records</h3>
+        <span className="panel-badge">{data.length} records</span>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead className="bg-slate-700">
+      <div className="table-wrapper">
+        <table className="data-table">
+          <thead>
             <tr>
               {columns.map((col) => (
-                <th
-                  key={col}
-                  className="px-4 py-3 text-left text-yellow-400 font-semibold"
-                >
-                  {col}
-                </th>
+                <th key={col}>{col}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {data.slice(0, 50).map((row, idx) => (
-              <tr
-                key={idx}
-                className="border-t border-slate-700 hover:bg-slate-700/50 transition-colors"
-              >
+              <tr key={idx}>
                 {columns.map((col) => (
-                  <td key={col} className="px-4 py-3">
-                    {String(row[col] ?? '')}
-                  </td>
+                  <td key={col}>{String(row[col] ?? '')}</td>
                 ))}
               </tr>
             ))}
@@ -46,7 +34,7 @@ const DataTable = () => {
       </div>
 
       {data.length > 50 && (
-        <div className="mt-4 text-center text-sm text-slate-400">
+        <div className="table-footer">
           Showing first 50 of {data.length} records
         </div>
       )}

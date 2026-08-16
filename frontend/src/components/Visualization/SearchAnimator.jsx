@@ -4,7 +4,6 @@ import { useData } from '../../context/DataContext';
 const SearchAnimator = ({ result }) => {
   const { isAnimating, data } = useData();
   const [currentStep, setCurrentStep] = useState(0);
-  const [animationSpeed] = useState(100);
 
   useEffect(() => {
     if (!result || !result.steps) return;
@@ -13,174 +12,164 @@ const SearchAnimator = ({ result }) => {
 
   useEffect(() => {
     if (!isAnimating || !result?.steps) return;
-
     const timer = setInterval(() => {
       setCurrentStep((prev) => {
-        if (prev >= result.steps.length - 1) {
-          return prev;
-        }
+        if (prev >= result.steps.length - 1) return prev;
         return prev + 1;
       });
-    }, animationSpeed);
-
+    }, 100);
     return () => clearInterval(timer);
-  }, [isAnimating, result, animationSpeed]);
+  }, [isAnimating, result]);
 
   if (!result) {
-    return <div className="text-slate-500">No search data to display</div>;
+    return <div className="canvas-empty"><p>No search data</p></div>;
   }
 
   const currentStepData = result.steps?.[currentStep];
 
-  // For comparison results (multiple algorithms)
+  // Comparison results
   if (result.linear || result.binary || result.hash) {
+    const fastest = result.summary?.fastest;
     return (
-      <div className="w-full p-6 space-y-4">
-        <h4 className="text-lg font-semibold text-center mb-4">
-          Search Algorithm Comparison
-        </h4>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="search-results">
+        <div className="graph-header">
+          <h4 className="graph-title">Search Comparison</h4>
+        </div>
+        <div className="search-compare-grid">
           {result.linear && (
             <ComparisonCard
               title="Linear Search"
               result={result.linear}
-              color="bg-blue-500"
+              isWinner={fastest === 'linear'}
             />
           )}
           {result.binary && (
             <ComparisonCard
               title="Binary Search"
               result={result.binary}
-              color="bg-purple-500"
+              isWinner={fastest === 'binary'}
             />
           )}
           {result.hash && (
             <ComparisonCard
               title="Hash Lookup"
               result={result.hash}
-              color="bg-green-500"
+              isWinner={fastest === 'hash'}
             />
           )}
         </div>
 
         {result.summary && (
-          <div className="mt-6 p-4 bg-slate-800 rounded-lg">
-            <h5 className="font-semibold mb-2">Summary</h5>
-            <p className="text-sm text-slate-300">
-              Fastest: <span className="text-yellow-400">{result.summary.fastest}</span>
-            </p>
-            <p className="text-sm text-slate-300">
-              Fewest Comparisons:{' '}
-              <span className="text-yellow-400">{result.summary.fewest_comparisons}</span>
-            </p>
+          <div className="traversal-section" style={{ marginTop: '1rem' }}>
+            <div className="traversal-section-label">Summary</div>
+            <div style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
+              <p style={{ margin: '0.25rem 0' }}>
+                Fastest: <strong style={{ color: 'var(--color-emerald)' }}>{result.summary.fastest}</strong>
+              </p>
+              <p style={{ margin: '0.25rem 0' }}>
+                Fewest comparisons: <strong style={{ color: 'var(--color-violet)' }}>{result.summary.fewest_comparisons}</strong>
+              </p>
+            </div>
           </div>
         )}
       </div>
     );
   }
 
-  // For single search visualization
+  // Single search
   return (
-    <div className="w-full p-6">
-      <div className="space-y-4">
-        <div className="text-center">
-          <h4 className="text-lg font-semibold">{result.algorithm}</h4>
-          <p className="text-sm text-slate-400">
-            {result.found ? '✓ Found' : '✗ Not Found'}
-          </p>
-        </div>
+    <div className="search-results">
+      <div className="graph-header">
+        <h4 className="graph-title">{result.algorithm}</h4>
+        <p className="graph-subtitle">
+          {result.found ? 'Value found' : 'Value not found'}
+        </p>
+      </div>
 
-        {currentStepData && (
-          <div className="bg-slate-800 p-4 rounded-lg">
-            <p className="text-sm">
-              <span className="text-slate-400">Step Type:</span>{' '}
-              <span className="text-yellow-400">{currentStepData.type}</span>
-            </p>
+      {currentStepData && (
+        <div className="traversal-section">
+          <div className="traversal-section-label">Current Step</div>
+          <div style={{ fontSize: '0.8125rem', display: 'flex', gap: '1rem' }}>
+            <span style={{ color: 'var(--text-tertiary)' }}>
+              Type: <strong style={{ color: 'var(--color-violet)' }}>{currentStepData.type}</strong>
+            </span>
             {currentStepData.index !== undefined && (
-              <p className="text-sm">
-                <span className="text-slate-400">Checking Index:</span>{' '}
-                <span className="text-yellow-400">{currentStepData.index}</span>
-              </p>
-            )}
-            {currentStepData.value !== undefined && (
-              <p className="text-sm">
-                <span className="text-slate-400">Value:</span>{' '}
-                <span className="text-yellow-400">{currentStepData.value}</span>
-              </p>
+              <span style={{ color: 'var(--text-tertiary)' }}>
+                Index: <strong style={{ color: 'var(--color-amber)' }}>{currentStepData.index}</strong>
+              </span>
             )}
           </div>
-        )}
+        </div>
+      )}
 
-        <div className="flex items-center justify-center space-x-2 flex-wrap">
-          {data.slice(0, 20).map((item, idx) => {
-            let bgColor = 'bg-slate-700';
-            
-            if (currentStepData) {
-              if (currentStepData.index === idx) {
-                bgColor = currentStepData.found
-                  ? 'bg-green-500'
-                  : 'bg-yellow-500';
-              } else if (currentStepData.left !== undefined &&
-                         currentStepData.right !== undefined) {
-                if (idx >= currentStepData.left && idx <= currentStepData.right) {
-                  bgColor = 'bg-blue-500/30';
-                }
-                if (idx === currentStepData.mid) {
-                  bgColor = 'bg-yellow-500';
-                }
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', justifyContent: 'center', margin: '1rem 0' }}>
+        {(data || []).slice(0, 20).map((item, idx) => {
+          let bg = 'var(--surface-3)';
+          let color = 'var(--text-secondary)';
+
+          if (currentStepData) {
+            if (currentStepData.index === idx) {
+              bg = currentStepData.found ? 'var(--color-emerald)' : 'var(--color-amber)';
+              color = '#0c0e14';
+            } else if (currentStepData.left !== undefined && currentStepData.right !== undefined) {
+              if (idx >= currentStepData.left && idx <= currentStepData.right) {
+                bg = 'var(--color-blue-tint)';
+                color = 'var(--color-blue)';
+              }
+              if (idx === currentStepData.mid) {
+                bg = 'var(--color-amber)';
+                color = '#0c0e14';
               }
             }
-            
-            return (
-              <div
-                key={idx}
-                className={`${bgColor} px-3 py-2 rounded text-sm transition-all duration-200`}
-              >
-                {idx}
-              </div>
-            );
-          })}
-        </div>
+          }
 
-        <div className="text-center text-sm text-slate-400">
-          Step {currentStep + 1} / {result.steps?.length || 0}
-        </div>
+          return (
+            <div
+              key={idx}
+              style={{
+                background: bg,
+                color,
+                padding: '6px 10px',
+                borderRadius: '6px',
+                fontSize: '0.8125rem',
+                fontWeight: 500,
+                transition: 'all 0.15s',
+              }}
+            >
+              {idx}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="sort-footer">
+        Step {currentStep + 1} / {result.steps?.length || 0}
       </div>
     </div>
   );
 };
 
-const ComparisonCard = ({ title, result, color }) => {
+const ComparisonCard = ({ title, result, isWinner }) => {
   return (
-    <div className="card">
-      <div className={`${color} text-white px-3 py-2 rounded-t-lg -mx-4 -mt-4 mb-4`}>
-        <h5 className="font-semibold">{title}</h5>
+    <div className={`search-compare-card ${isWinner ? 'winner' : ''}`}>
+      <div className="search-compare-card-title">{title}</div>
+
+      <div className="search-compare-stat">
+        <span className="search-compare-stat-label">Comparisons</span>
+        <span className="search-compare-stat-value">{result.comparisons}</span>
       </div>
-      
-      <div className="space-y-2 text-sm">
-        <div className="flex justify-between">
-          <span className="text-slate-400">Result:</span>
-          <span className={result.found ? 'text-green-400' : 'text-red-400'}>
-            {result.found ? '✓ Found' : '✗ Not Found'}
-          </span>
-        </div>
-        
-        <div className="flex justify-between">
-          <span className="text-slate-400">Comparisons:</span>
-          <span className="text-yellow-400">{result.comparisons}</span>
-        </div>
-        
-        <div className="flex justify-between">
-          <span className="text-slate-400">Time:</span>
-          <span className="text-yellow-400">{result.time?.toFixed(3)} ms</span>
-        </div>
-        
-        <div className="flex justify-between">
-          <span className="text-slate-400">Complexity:</span>
-          <span className="text-purple-400">{result.complexity}</span>
-        </div>
+      <div className="search-compare-stat">
+        <span className="search-compare-stat-label">Time</span>
+        <span className="search-compare-stat-value">{result.time?.toFixed(3)} ms</span>
       </div>
+      <div className="search-compare-stat">
+        <span className="search-compare-stat-label">Complexity</span>
+        <span className="search-compare-stat-value">{result.complexity}</span>
+      </div>
+
+      <span className={`search-found-badge ${result.found ? 'search-found-yes' : 'search-found-no'}`}>
+        {result.found ? '✓ Found' : '✗ Not found'}
+      </span>
     </div>
   );
 };

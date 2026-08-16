@@ -238,11 +238,12 @@ class SearchingAlgorithms:
         if hash_table:
             results['hash'] = SearchingAlgorithms.hash_search(hash_table, target)
         
-        # Summary comparison
+        # Summary comparison — compute from algorithm keys only, before adding summary
+        algo_keys = [k for k in results.keys()]
         results['summary'] = {
-            'fastest': min(results.keys(), key=lambda k: results[k]['time']),
-            'fewest_comparisons': min(results.keys(), key=lambda k: results[k]['comparisons']),
-            'all_found': all(results[k]['found'] for k in results.keys())
+            'fastest': min(algo_keys, key=lambda k: results[k].get('time', float('inf'))),
+            'fewest_comparisons': min(algo_keys, key=lambda k: results[k].get('comparisons', float('inf'))),
+            'all_found': all(results[k].get('found', False) for k in algo_keys)
         }
         
         return results

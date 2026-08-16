@@ -19,42 +19,46 @@ const StatisticsPanel = ({ statistics }) => {
   ].filter(s => s.value !== undefined && s.value !== 'undefined');
 
   return (
-    <div className="card animate-slide-up">
-      <h3 className="text-lg font-semibold mb-4">📊 Statistical Analysis</h3>
+    <div className="panel">
+      <div className="panel-header">
+        <h3 className="panel-title">Statistical Analysis</h3>
+      </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-6">
+      <div className="stats-grid">
         {stats.map((stat, idx) => (
-          <div key={idx} className="bg-slate-700 p-3 rounded-lg text-center">
-            <div className="text-xs text-slate-400 mb-1">{stat.label}</div>
-            <div className="text-lg font-semibold text-indigo-400">
-              {stat.value}
-            </div>
+          <div key={idx} className="stat-card">
+            <div className="stat-label">{stat.label}</div>
+            <div className="stat-value">{stat.value}</div>
           </div>
         ))}
       </div>
 
       {statistics.distribution && statistics.distribution.bins && (
-        <div>
-          <h4 className="text-md font-semibold mb-3">Frequency Distribution</h4>
-          <ResponsiveContainer width="100%" height={300}>
+        <div style={{ marginTop: '1.5rem' }}>
+          <h4 className="panel-subtitle">Distribution</h4>
+          <ResponsiveContainer width="100%" height={260}>
             <BarChart data={statistics.distribution.bins}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
               <XAxis
                 dataKey="min"
-                stroke="#9ca3af"
-                tick={{ fill: '#9ca3af' }}
+                stroke="var(--text-tertiary)"
+                tick={{ fill: 'var(--text-tertiary)', fontSize: 11 }}
                 tickFormatter={(value) => value.toFixed(0)}
               />
-              <YAxis stroke="#9ca3af" tick={{ fill: '#9ca3af' }} />
+              <YAxis
+                stroke="var(--text-tertiary)"
+                tick={{ fill: 'var(--text-tertiary)', fontSize: 11 }}
+              />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#1e293b',
-                  border: '1px solid #475569',
-                  borderRadius: '0.5rem',
+                  backgroundColor: 'var(--surface-2)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '8px',
+                  fontSize: '12px',
                 }}
-                labelStyle={{ color: '#f1f5f9' }}
+                labelStyle={{ color: 'var(--text-primary)' }}
               />
-              <Bar dataKey="count" fill="#6366f1" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="count" fill="var(--color-violet)" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
