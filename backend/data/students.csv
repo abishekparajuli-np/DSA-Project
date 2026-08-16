@@ -1,0 +1,51 @@
+student_id,name,department,marks,age,gpa
+STU1000,Kate Brown,Chemistry,84.09,21,3.36
+STU1001,Ivy Johnson,Chemistry,90.39,18,3.62
+STU1002,Grace Williams,Computer Science,54.07,20,2.16
+STU1003,Ivy Miller,Mathematics,54.7,23,2.19
+STU1004,Peter Johnson,Mathematics,99.6,21,3.98
+STU1005,Tina Rodriguez,Chemistry,62.88,23,2.52
+STU1006,Noah Smith,Mathematics,55.23,25,2.21
+STU1007,Jack Martinez,Computer Science,40.29,20,1.61
+STU1008,Tina Martinez,Computer Science,70.19,22,2.81
+STU1009,Mia Miller,Chemistry,87.48,24,3.5
+STU1010,Olivia Brown,Chemistry,65.47,19,2.62
+STU1011,Peter Davis,Computer Science,67.75,21,2.71
+STU1012,Rachel Davis,Mathematics,61.38,21,2.46
+STU1013,Henry Williams,Physics,75.1,18,3.0
+STU1014,Kate Johnson,Computer Science,54.07,18,2.16
+STU1015,Mia Martinez,Mathematics,58.2,18,2.33
+STU1016,Henry Lopez,Chemistry,70.83,18,2.83
+STU1017,Tina Davis,Biology,40.56,19,1.62
+STU1018,Alice Davis,Physics,60.6,19,2.42
+STU1019,Eve Martinez,Mathematics,45.08,23,1.8
+STU1020,Bob Smith,Chemistry,43.72,20,1.75
+STU1021,Rachel Miller,Mathematics,87.1,19,3.48
+STU1022,Alice Miller,Mathematics,88.72,19,3.55
+STU1023,Tina Lopez,Biology,94.51,25,3.78
+STU1024,Ivy Williams,Physics,44.97,23,1.8
+STU1025,Sam Smith,Physics,75.69,18,3.03
+STU1026,Henry Garcia,Chemistry,91.42,22,3.66
+STU1027,Ivy Martinez,Computer Science,71.77,18,2.87
+STU1028,Ivy Martinez,Computer Science,69.71,20,2.79
+STU1029,Quinn Hernandez,Chemistry,49.38,20,1.98
+STU1030,Ivy Brown,Mathematics,74.19,23,2.97
+STU1031,Rachel Rodriguez,Biology,63.25,23,2.53
+STU1032,Diana Garcia,Computer Science,59.2,24,2.37
+STU1033,Grace Rodriguez,Biology,90.83,21,3.63
+STU1034,Jack Rodriguez,Physics,65.81,18,2.63
+STU1035,Kate Williams,Biology,95.08,19,3.8
+STU1036,Kate Jones,Mathematics,90.33,22,3.61
+STU1037,Henry Garcia,Computer Science,83.21,24,3.33
+STU1038,Quinn Johnson,Computer Science,72.02,19,2.88
+STU1039,Frank Gonzalez,Chemistry,62.57,21,2.5
+STU1040,Frank Davis,Biology,76.73,21,3.07
+STU1041,Noah Johnson,Mathematics,64.22,20,2.57
+STU1042,Quinn Johnson,Biology,69.87,24,2.79
+STU1043,Tina Johnson,Biology,95.47,23,3.82
+STU1044,Diana Garcia,Chemistry,87.76,23,3.51
+STU1045,Ivy Johnson,Chemistry,78.27,24,3.13
+STU1046,Ivy Davis,Chemistry,73.8,24,2.95
+STU1047,Noah Gonzalez,Physics,93.36,23,3.73
+STU1048,Grace Miller,Chemistry,84.47,18,3.38
+STU1049,Grace Rodriguez,Biology,70.8,18,2.83

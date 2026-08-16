@@ -1,0 +1,51 @@
+sensor_id,type,location,reading,unit,timestamp,status
+SENS3000,Temperature,Room C,17.46,°C,0,maintenance
+SENS3001,Pressure,Warehouse,978.98,hPa,60,maintenance
+SENS3002,Temperature,Room A,15.38,°C,120,active
+SENS3003,Humidity,Room B,43.54,%,180,maintenance
+SENS3004,Humidity,Room A,39.85,%,240,maintenance
+SENS3005,Humidity,Room C,52.55,%,300,maintenance
+SENS3006,Light,Warehouse,533.57,lux,360,active
+SENS3007,Humidity,Room B,77.45,%,420,active
+SENS3008,Humidity,Room A,42.53,%,480,maintenance
+SENS3009,Motion,Room B,79.18,count,540,active
+SENS3010,Light,Warehouse,205.83,lux,600,active
+SENS3011,Humidity,Warehouse,75.34,%,660,active
+SENS3012,Temperature,Room B,17.12,°C,720,maintenance
+SENS3013,Motion,Warehouse,7.85,count,780,active
+SENS3014,Light,Room C,727.24,lux,840,maintenance
+SENS3015,Humidity,Room A,60.08,%,900,active
+SENS3016,Humidity,Office,42.88,%,960,active
+SENS3017,Pressure,Office,947.22,hPa,1020,maintenance
+SENS3018,Pressure,Room A,922.17,hPa,1080,active
+SENS3019,Pressure,Office,968.11,hPa,1140,maintenance
+SENS3020,Pressure,Room C,1062.34,hPa,1200,active
+SENS3021,Light,Office,924.74,lux,1260,active
+SENS3022,Light,Room B,563.36,lux,1320,maintenance
+SENS3023,Temperature,Warehouse,34.79,°C,1380,active
+SENS3024,Motion,Room A,10.98,count,1440,maintenance
+SENS3025,Motion,Warehouse,40.17,count,1500,active
+SENS3026,Temperature,Room A,30.27,°C,1560,active
+SENS3027,Humidity,Office,32.73,%,1620,active
+SENS3028,Light,Room B,339.48,lux,1680,active
+SENS3029,Motion,Room C,58.29,count,1740,active
+SENS3030,Light,Office,493.94,lux,1800,active
+SENS3031,Motion,Warehouse,28.67,count,1860,maintenance
+SENS3032,Motion,Room B,27.17,count,1920,active
+SENS3033,Humidity,Office,36.38,%,1980,maintenance
+SENS3034,Light,Room B,782.11,lux,2040,active
+SENS3035,Temperature,Office,23.97,°C,2100,active
+SENS3036,Light,Warehouse,341.32,lux,2160,active
+SENS3037,Motion,Office,38.31,count,2220,active
+SENS3038,Light,Room A,569.01,lux,2280,maintenance
+SENS3039,Humidity,Warehouse,58.26,%,2340,active
+SENS3040,Motion,Warehouse,92.89,count,2400,active
+SENS3041,Humidity,Room B,70.41,%,2460,active
+SENS3042,Humidity,Office,44.15,%,2520,active
+SENS3043,Pressure,Room B,1097.24,hPa,2580,active
+SENS3044,Motion,Room C,34.44,count,2640,active
+SENS3045,Pressure,Room B,911.14,hPa,2700,maintenance
+SENS3046,Temperature,Room C,31.34,°C,2760,active
+SENS3047,Motion,Warehouse,83.03,count,2820,active
+SENS3048,Motion,Room B,92.63,count,2880,maintenance
+SENS3049,Light,Room C,144.11,lux,2940,active

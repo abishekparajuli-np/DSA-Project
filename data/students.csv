@@ -1,0 +1,51 @@
+student_id,name,department,marks,age,gpa
+STU1000,Frank Brown,Chemistry,65.21,24,2.61
+STU1001,Liam Gonzalez,Physics,41.47,18,1.66
+STU1002,Tina Miller,Physics,46.27,21,1.85
+STU1003,Henry Miller,Mathematics,45.52,25,1.82
+STU1004,Sam Martinez,Physics,47.44,19,1.9
+STU1005,Sam Davis,Computer Science,76.0,18,3.04
+STU1006,Henry Brown,Chemistry,61.47,20,2.46
+STU1007,Quinn Williams,Chemistry,52.28,22,2.09
+STU1008,Ivy Gonzalez,Biology,74.85,24,2.99
+STU1009,Eve Jones,Physics,89.6,20,3.58
+STU1010,Frank Gonzalez,Chemistry,62.97,18,2.52
+STU1011,Diana Martinez,Chemistry,85.61,21,3.42
+STU1012,Diana Rodriguez,Biology,81.93,24,3.28
+STU1013,Alice Hernandez,Computer Science,79.65,23,3.19
+STU1014,Charlie Rodriguez,Chemistry,86.74,19,3.47
+STU1015,Jack Martinez,Physics,40.63,23,1.63
+STU1016,Bob Jones,Biology,94.2,22,3.77
+STU1017,Rachel Martinez,Computer Science,99.83,21,3.99
+STU1018,Quinn Hernandez,Chemistry,76.02,19,3.04
+STU1019,Grace Hernandez,Physics,75.07,21,3.0
+STU1020,Henry Garcia,Biology,51.49,22,2.06
+STU1021,Rachel Johnson,Computer Science,41.64,19,1.67
+STU1022,Olivia Lopez,Physics,95.34,25,3.81
+STU1023,Mia Martinez,Physics,46.03,23,1.84
+STU1024,Quinn Smith,Mathematics,87.62,19,3.5
+STU1025,Eve Garcia,Computer Science,83.44,21,3.34
+STU1026,Bob Hernandez,Physics,48.88,22,1.96
+STU1027,Noah Brown,Mathematics,82.68,23,3.31
+STU1028,Charlie Brown,Physics,52.73,25,2.11
+STU1029,Bob Jones,Physics,74.78,22,2.99
+STU1030,Kate Lopez,Mathematics,95.54,19,3.82
+STU1031,Henry Gonzalez,Biology,83.73,24,3.35
+STU1032,Grace Garcia,Mathematics,72.71,24,2.91
+STU1033,Peter Martinez,Chemistry,82.02,21,3.28
+STU1034,Peter Johnson,Biology,87.29,22,3.49
+STU1035,Jack Johnson,Physics,50.71,20,2.03
+STU1036,Rachel Davis,Biology,49.74,23,1.99
+STU1037,Liam Hernandez,Biology,91.7,21,3.67
+STU1038,Ivy Smith,Chemistry,54.75,21,2.19
+STU1039,Mia Davis,Biology,41.87,18,1.67
+STU1040,Olivia Jones,Biology,62.62,18,2.5
+STU1041,Bob Rodriguez,Chemistry,72.26,20,2.89
+STU1042,Olivia Martinez,Mathematics,81.02,21,3.24
+STU1043,Jack Miller,Physics,82.5,23,3.3
+STU1044,Peter Miller,Computer Science,42.27,18,1.69
+STU1045,Charlie Davis,Biology,61.82,21,2.47
+STU1046,Bob Smith,Mathematics,49.82,23,1.99
+STU1047,Henry Hernandez,Biology,74.02,19,2.96
+STU1048,Olivia Williams,Computer Science,88.13,24,3.53
+STU1049,Liam Miller,Physics,97.63,25,3.91
