@@ -19,6 +19,7 @@ export const DataProvider = ({ children }) => {
   const [visualizationData, setVisualizationData] = useState(null);
   const [algorithmResult, setAlgorithmResult] = useState(null);
   const [statistics, setStatistics] = useState(null);
+  const [queryResults, setQueryResults] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleError = useCallback((err) => {
@@ -182,6 +183,13 @@ export const DataProvider = ({ children }) => {
       setLoading(true);
       setError(null);
       const response = await dataAPI.executeQuery(query, field);
+      // Store query results with metadata
+      setQueryResults({
+        query,
+        field,
+        results: response.data.result,
+        count: response.data.count
+      });
       return response.data;
     } catch (err) {
       handleError(err);
@@ -198,6 +206,7 @@ export const DataProvider = ({ children }) => {
   const resetVisualization = useCallback(() => {
     setVisualizationData(null);
     setAlgorithmResult(null);
+    setQueryResults(null);
     setIsAnimating(false);
   }, []);
 
@@ -209,6 +218,7 @@ export const DataProvider = ({ children }) => {
     visualizationData,
     algorithmResult,
     statistics,
+    queryResults,
     isAnimating,
     uploadCSV,
     loadSample,

@@ -8,11 +8,11 @@ const TreeVisualizer = ({ data }) => {
     );
   }
 
-  const renderNode = (node, x = 400, y = 50, level = 0, offsetX = 150) => {
+  const renderNode = (node, x, y, level = 0, offsetX) => {
     if (!node) return null;
 
-    const newOffsetX = offsetX * 0.6;
-    const verticalSpacing = 70;
+    const newOffsetX = offsetX * 0.55;
+    const verticalSpacing = 80;
 
     return (
       <g key={`${node.key}-${level}-${x}`}>
@@ -56,7 +56,10 @@ const TreeVisualizer = ({ data }) => {
   };
 
   const treeHeight = data.height || 1;
-  const svgHeight = Math.max(treeHeight * 70 + 100, 350);
+  const treeWidth = Math.max(data.size * 50, 1000);
+  const svgHeight = Math.max(treeHeight * 80 + 120, 400);
+  const initialOffsetX = Math.max(treeWidth / 4, 200);
+  const centerX = treeWidth / 2;
 
   return (
     <div style={{ width: '100%', padding: '1rem' }}>
@@ -69,9 +72,9 @@ const TreeVisualizer = ({ data }) => {
         </p>
       </div>
 
-      <div style={{ overflow: 'auto', maxHeight: '420px' }}>
-        <svg width="800" height={svgHeight} style={{ minWidth: '800px', display: 'block', margin: '0 auto' }}>
-          {renderNode(data.root)}
+      <div style={{ overflow: 'auto', maxHeight: '500px', background: 'var(--surface-0)', borderRadius: '8px', border: '1px solid var(--border)' }}>
+        <svg width={treeWidth} height={svgHeight} style={{ minWidth: treeWidth, display: 'block', margin: '0 auto' }}>
+          {renderNode(data.root, centerX, 50, 0, initialOffsetX)}
         </svg>
       </div>
 

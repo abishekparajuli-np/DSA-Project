@@ -6,7 +6,7 @@ import StatisticsPanel from '../Statistics/StatisticsPanel';
 import { AlertCircle, Loader2, BarChart3 } from 'lucide-react';
 
 const MainContent = () => {
-  const { data, columns, loading, error, algorithmResult, statistics } = useData();
+  const { data, columns, loading, error, algorithmResult, statistics, queryResults } = useData();
 
   return (
     <main className="main-content">
@@ -71,6 +71,46 @@ const MainContent = () => {
 
       {/* Data Table */}
       {data?.length > 0 && <DataTable />}
+
+      {/* Query Results */}
+      {queryResults && Array.isArray(queryResults.results) && queryResults.results.length > 0 && (
+        <div className="panel">
+          <div className="panel-header">
+            <h3 className="panel-title">Query Results</h3>
+            <span className="panel-badge">{queryResults.count || queryResults.results.length} records</span>
+          </div>
+          <div className="panel-subtitle" style={{ padding: '0 1rem', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>
+            Query: "{queryResults.query}" on field "{queryResults.field}"
+          </div>
+          <div className="table-wrapper" style={{ maxHeight: '280px' }}>
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  {columns.map((col) => (
+                    <th key={col}>{col}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {queryResults.results.slice(0, 50).map((row, idx) => (
+                  <tr key={idx}>
+                    <td className="text-muted">{idx + 1}</td>
+                    {columns.map((col) => (
+                      <td key={col}>{String(row[col] ?? '')}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {queryResults.results.length > 50 && (
+            <div className="table-footer">
+              Showing 50 of {queryResults.results.length} records
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Statistics */}
       {statistics && <StatisticsPanel statistics={statistics} />}

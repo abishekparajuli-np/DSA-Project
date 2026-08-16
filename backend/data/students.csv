@@ -1,51 +1,51 @@
 student_id,name,department,marks,age,gpa
-STU1000,Noah Johnson,Computer Science,82.84,25,3.31
-STU1001,Tina Lopez,Chemistry,42.68,25,1.71
-STU1002,Olivia Miller,Chemistry,73.08,21,2.92
-STU1003,Ivy Jones,Computer Science,66.15,20,2.65
-STU1004,Alice Rodriguez,Chemistry,69.08,25,2.76
-STU1005,Diana Davis,Chemistry,66.79,24,2.67
-STU1006,Eve Martinez,Biology,66.85,20,2.67
-STU1007,Ivy Smith,Computer Science,66.91,23,2.68
-STU1008,Alice Martinez,Mathematics,66.8,18,2.67
-STU1009,Frank Martinez,Biology,78.9,22,3.16
-STU1010,Bob Martinez,Chemistry,79.73,24,3.19
-STU1011,Eve Lopez,Computer Science,71.98,24,2.88
-STU1012,Olivia Smith,Chemistry,61.11,24,2.44
-STU1013,Sam Miller,Physics,48.47,20,1.94
-STU1014,Tina Gonzalez,Mathematics,53.02,23,2.12
-STU1015,Grace Jones,Physics,46.05,24,1.84
-STU1016,Noah Brown,Mathematics,82.06,23,3.28
-STU1017,Peter Hernandez,Biology,48.05,18,1.92
-STU1018,Rachel Gonzalez,Physics,53.34,18,2.13
-STU1019,Mia Hernandez,Physics,86.95,19,3.48
-STU1020,Eve Garcia,Physics,96.64,18,3.87
-STU1021,Mia Johnson,Physics,44.04,24,1.76
-STU1022,Tina Johnson,Biology,69.97,20,2.8
-STU1023,Jack Garcia,Biology,58.88,22,2.36
-STU1024,Peter Davis,Biology,73.55,24,2.94
-STU1025,Quinn Garcia,Biology,76.95,22,3.08
-STU1026,Rachel Jones,Biology,86.12,22,3.44
-STU1027,Liam Martinez,Mathematics,88.55,23,3.54
-STU1028,Ivy Smith,Chemistry,43.94,19,1.76
-STU1029,Alice Williams,Chemistry,45.23,20,1.81
-STU1030,Sam Gonzalez,Mathematics,60.12,22,2.4
-STU1031,Rachel Rodriguez,Biology,83.22,22,3.33
-STU1032,Alice Martinez,Mathematics,90.79,25,3.63
-STU1033,Bob Hernandez,Mathematics,59.55,21,2.38
-STU1034,Peter Martinez,Mathematics,72.58,20,2.9
-STU1035,Mia Davis,Mathematics,97.61,18,3.9
-STU1036,Mia Smith,Mathematics,95.78,21,3.83
-STU1037,Olivia Brown,Mathematics,87.9,25,3.52
-STU1038,Mia Davis,Biology,99.32,20,3.97
-STU1039,Diana Gonzalez,Physics,86.57,18,3.46
-STU1040,Diana Johnson,Computer Science,97.42,19,3.9
-STU1041,Jack Martinez,Mathematics,54.07,20,2.16
-STU1042,Quinn Williams,Chemistry,83.5,24,3.34
-STU1043,Ivy Jones,Mathematics,47.41,21,1.9
-STU1044,Eve Davis,Physics,79.31,18,3.17
-STU1045,Sam Smith,Mathematics,52.08,18,2.08
-STU1046,Ivy Gonzalez,Biology,53.33,18,2.13
-STU1047,Ivy Williams,Chemistry,70.14,24,2.81
-STU1048,Peter Williams,Physics,98.77,18,3.95
-STU1049,Eve Williams,Mathematics,68.25,21,2.73
+STU1000,Kate Miller,Mathematics,69.0,18,2.76
+STU1001,Ivy Williams,Biology,58.33,18,2.33
+STU1002,Alice Garcia,Physics,53.99,18,2.16
+STU1003,Henry Miller,Physics,81.87,24,3.27
+STU1004,Liam Garcia,Computer Science,60.44,22,2.42
+STU1005,Peter Gonzalez,Chemistry,56.51,22,2.26
+STU1006,Olivia Rodriguez,Chemistry,86.29,21,3.45
+STU1007,Diana Johnson,Chemistry,85.76,20,3.43
+STU1008,Frank Martinez,Chemistry,88.66,18,3.55
+STU1009,Mia Johnson,Computer Science,71.18,22,2.85
+STU1010,Noah Rodriguez,Mathematics,85.33,25,3.41
+STU1011,Frank Rodriguez,Computer Science,54.24,18,2.17
+STU1012,Charlie Hernandez,Computer Science,90.45,25,3.62
+STU1013,Peter Jones,Chemistry,46.42,19,1.86
+STU1014,Liam Gonzalez,Biology,52.4,23,2.1
+STU1015,Sam Hernandez,Biology,84.93,22,3.4
+STU1016,Liam Garcia,Mathematics,41.08,18,1.64
+STU1017,Ivy Davis,Computer Science,56.43,18,2.26
+STU1018,Bob Brown,Computer Science,86.5,24,3.46
+STU1019,Quinn Johnson,Biology,51.59,24,2.06
+STU1020,Sam Gonzalez,Physics,83.48,25,3.34
+STU1021,Eve Davis,Computer Science,81.98,24,3.28
+STU1022,Kate Martinez,Mathematics,48.12,18,1.92
+STU1023,Olivia Johnson,Physics,77.68,21,3.11
+STU1024,Bob Gonzalez,Biology,69.93,20,2.8
+STU1025,Liam Williams,Chemistry,84.62,22,3.38
+STU1026,Mia Davis,Chemistry,59.06,24,2.36
+STU1027,Rachel Miller,Biology,92.82,20,3.71
+STU1028,Ivy Davis,Mathematics,90.85,18,3.63
+STU1029,Quinn Brown,Physics,84.17,22,3.37
+STU1030,Liam Lopez,Mathematics,77.48,19,3.1
+STU1031,Bob Hernandez,Biology,71.03,19,2.84
+STU1032,Charlie Davis,Mathematics,59.66,24,2.39
+STU1033,Jack Martinez,Chemistry,99.88,20,4.0
+STU1034,Eve Miller,Mathematics,47.96,22,1.92
+STU1035,Alice Johnson,Mathematics,73.05,19,2.92
+STU1036,Alice Lopez,Biology,62.07,20,2.48
+STU1037,Grace Smith,Computer Science,83.23,21,3.33
+STU1038,Frank Brown,Computer Science,74.89,18,3.0
+STU1039,Henry Brown,Computer Science,69.47,24,2.78
+STU1040,Sam Rodriguez,Chemistry,85.02,18,3.4
+STU1041,Quinn Smith,Computer Science,66.52,20,2.66
+STU1042,Kate Martinez,Computer Science,61.36,19,2.45
+STU1043,Rachel Jones,Biology,83.6,22,3.34
+STU1044,Quinn Gonzalez,Physics,44.02,21,1.76
+STU1045,Henry Rodriguez,Chemistry,63.73,23,2.55
+STU1046,Peter Johnson,Mathematics,50.34,18,2.01
+STU1047,Sam Lopez,Physics,57.69,22,2.31
+STU1048,Tina Gonzalez,Mathematics,84.15,23,3.37
+STU1049,Alice Smith,Physics,73.0,22,2.92
